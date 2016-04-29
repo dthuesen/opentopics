@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Open Topics</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Shortlist</th>
+      <th>Number</th>
+      <th>Summary</th>
+      <th>Description</th>
+      <th>Option</th>
+      <th>Component</th>
+      <th>Category</th>
+      <th>Prio</th>
+      <th>Responsible</th>
+      <th>State</th>
+      <th>Costmodel</th>
+      <th>Affects version</th>
+      <th>Issue ticket</th>
+      <th>Ticket text</th>
+      <th>Notes</th>
+      <th>In sprint</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @open_topics.each do |open_topic| %>
+      <tr>
+        <td><%= open_topic.shortlist %></td>
+        <td><%= open_topic.number %></td>
+        <td><%= best_in_place open_topic, :summary, :as => :textarea %></td>
+        <td><%= open_topic.description %></td>
+        <td><%= open_topic.option %></td>
+        <td><%= open_topic.component %></td>
+        <td><%= open_topic.category %></td>
+        <td><%= open_topic.prio %></td>
+        <td><%= open_topic.responsible %></td>
+        <td><%= open_topic.state %></td>
+        <td><%= open_topic.costmodel %></td>
+        <td><%= open_topic.affects_version %></td>
+        <td><%= open_topic.issue_ticket %></td>
+        <td><%= open_topic.ticket_text %></td>
+        <td><%= open_topic.notes %></td>
+        <td><%= open_topic.in_sprint %></td>
+        <td><%= link_to 'Show', open_topic %></td>
+        <td><%= link_to 'Edit', edit_open_topic_path(open_topic) %></td>
+        <td><%= link_to 'Destroy', open_topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Open topic', new_open_topic_path %>

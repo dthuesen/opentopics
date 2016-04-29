@@ -1,0 +1,83 @@
+<%= simple_form_for(open_topic) do |f| %>
+  <% if open_topic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(open_topic.errors.count, "error") %> prohibited this open_topic from being saved:</h2>
+
+      <ul>
+      <% open_topic.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.check_box :shortlist, as: :boolean, 
+                                checked_value: true, 
+                                unchecked_value: false, 
+                                :label => "Auf die Shortlist setzen", 
+                                input_html: { checked: true } %>
+  </div>
+  <div class="field">
+    <%= f.input :number %>
+  </div>
+  <div class="field">
+    <%= f.label :summary %><br>
+    <%= f.text_area :summary %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :option %><br>
+    <%= f.text_area :option %>
+  </div>
+  <div class="field">
+    <%= f.label :component %><br>
+    <%= f.text_field :component %>
+  </div>
+  <div class="field">
+    <%= f.label :category %><br>
+    <%= f.text_field :category %>
+  </div>
+  <div class="field">
+    <%= f.label :prio %><br>
+    <%= f.text_field :prio %>
+  </div>
+  <div class="field">
+    <%= f.label :responsible %><br>
+    <%= f.text_field :responsible %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :costmodel %><br>
+    <%= f.text_field :costmodel %>
+  </div>
+  <div class="field">
+    <%= f.label :affects_version %><br>
+    <%= f.text_field :affects_version %>
+  </div>
+  <div class="field">
+    <%= f.label :issue_ticket %><br>
+    <%= f.text_field :issue_ticket %>
+  </div>
+  <div class="field">
+    <%= f.label :ticket_text %><br>
+    <%= f.text_area :ticket_text %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :in_sprint %><br>
+    <%= f.text_field :in_sprint %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
